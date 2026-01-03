@@ -35,3 +35,7 @@ function detectBlow() {
     }
     check();
 }
+setTimeout(() => {
+    window.location.href = "#next"; // atau tampilkan scene berikutnya
+}, 2600);
+
