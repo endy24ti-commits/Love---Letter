@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.book {
+    background: #fce4ec;
+    animation: openBook 1.5s ease forwards;
+}
+
+@keyframes openBook {
+    from { transform: rotateY(90deg); opacity: 0; }
+    to { transform: rotateY(0); opacity: 1; }
+}
+
+.cake {
+    background: #e3f2fd;
+}
+
+.cake-img {
+    width: 200px;
+}
+
+#candle {
+    width: 120px;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.letter {
+    background: #fff;
+    padding: 20px;
+}
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    display: none;
+    background:
+        radial-gradient(circle, #ff0 2px, transparent 2px),
+        radial-gradient(circle, #f00 2px, transparent 2px),
+        radial-gradient(circle, #0ff 2px, transparent 2px);
+    background-size: 40px 40px;
+    animation: boom 0.5s infinite alternate;
+}
+
+@keyframes boom {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
