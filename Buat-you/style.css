@@ -4,46 +4,74 @@ body {
     scroll-behavior: smooth;
 }
 
-.page {
+.section {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 20px;
+}
+
+.earth {
+    background: #9ff5e6;
+}
+
+.earth-img {
+    width: 260px;
+}
+
+.hint {
+    margin-top: 20px;
 }
 
 .book {
-    background: #fce4ec;
-    animation: openBook 1.5s ease forwards;
+    background: #fff3e0;
+    animation: fadeIn 1.5s ease;
 }
 
-@keyframes openBook {
-    from { transform: rotateY(90deg); opacity: 0; }
-    to { transform: rotateY(0); opacity: 1; }
+.book-img {
+    width: 220px;
 }
 
 .cake {
     background: #e3f2fd;
 }
 
-.cake-img {
-    width: 200px;
+.photo-wrapper {
+    position: relative;
+    width: 260px;
+    margin: 20px 0;
 }
 
-#candle {
-    width: 120px;
-    margin: 10px 0;
+.photo {
+    width: 100%;
+}
+
+.flame {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 20px;
     font-size: 16px;
 }
 
 .letter {
     background: #fff;
-    padding: 20px;
+}
+
+pre {
+    text-align: left;
+    white-space: pre-wrap;
+    color: #d80000;
+    max-width: 400px;
+    line-height: 1.7;
 }
 
 #fireworks {
@@ -56,10 +84,15 @@ button {
         radial-gradient(circle, #f00 2px, transparent 2px),
         radial-gradient(circle, #0ff 2px, transparent 2px);
     background-size: 40px 40px;
-    animation: boom 0.5s infinite alternate;
+    animation: boom 0.4s infinite alternate;
 }
 
 @keyframes boom {
-    from { opacity: 0.4; }
+    from { opacity: 0.3; }
     to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
 }
