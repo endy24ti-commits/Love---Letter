@@ -4,8 +4,8 @@ let analyser;
 async function startMic() {
     audioContext = new (window.AudioContext || window.webkitAudioContext)();
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-
     const mic = audioContext.createMediaStreamSource(stream);
+
     analyser = audioContext.createAnalyser();
     mic.connect(analyser);
 
@@ -20,22 +20,18 @@ function detectBlow() {
         let sum = 0;
 
         for (let i = 0; i < data.length; i++) {
-            let val = (data[i] - 128) / 128;
-            sum += val * val;
+            let v = (data[i] - 128) / 128;
+            sum += v * v;
         }
 
         let volume = Math.sqrt(sum / data.length);
 
         if (volume > 0.1) {
-            blowOut();
+            document.getElementById("flame").style.display = "none";
+            document.getElementById("fireworks").style.display = "block";
             return;
         }
         requestAnimationFrame(check);
     }
     check();
-}
-
-function blowOut() {
-    document.getElementById("candle").src = "assets/candle-off.png";
-    document.getElementById("fireworks").style.display = "block";
 }
